@@ -1,4 +1,5 @@
 const csvLoad = require("../csv-load")
+const checkDirectory = require("../check-directory")
 require("dotenv").config()
 const WebSocket = require("ws")
 const enigma = require("enigma.js")
@@ -6,12 +7,23 @@ const schema = require("enigma.js/schemas/12.170.2.json")
 const uuidv4 = require("uuid/v4")
 const fs = require("fs")
 
-const { readDirectory, unprocessedFile, processedFile, engineUrl, appName, emptyFile } = process.env
+const {
+  readDirectory,
+  unprocessedFile,
+  processedFile,
+  engineUrl,
+  appName,
+  emptyFile
+} = process.env
 // readDirectory: Where the script will be looking for timestamped CSV files
 // unprocessedFile: The CSV file the engine does partial loads with
 // processedFile: The CSV file where the engine does a full load with
 // engineUrl: The url to the core engine
 // appName: The name of the qlik app to load
+// emptyFile: The csv file containing just the headers
+checkDirectory(readDirectory)
+checkDirectory(unprocessedFile, { isDirectory: false })
+checkDirectory(processedFile, { isDirectory: false })
 
 // this is the header to place in the top of the unprocessed csv file
 const headerLine =
@@ -66,7 +78,7 @@ const checkBadge = async () => {
   if (layout.badge && layout.badge != 0 && badgeValue === "0") {
     console.log(`Badge ${layout.badge} Assigned, Searching for Files...`)
 
-    // grab the badge and Race IDs 
+    // grab the badge and Race IDs
     badgeValue = layout.badge.toString()
     raceValue = layout.raceId
     csvLoad(readDirectory)
@@ -120,7 +132,6 @@ const startWatching = async () => {
     ;[results, finishedFound] = removeDuplicates(results, "FIN", !finishedFound)
     ;[results, finishedFound] = removeDuplicates(results, "DNF", !finishedFound)
 
-
     if (results.length > 0) {
       const start = process.hrtime()
       console.log(`Processing ${results.length} files.`)
@@ -140,18 +151,16 @@ const startWatching = async () => {
       // empty the unprocessedFile for partial load
       fs.copyFileSync(emptyFile, unprocessedFile)
 
-      console.info(
-        "Done, took %ds %dms",
-        hrend[0],
-        hrend[1] / 1000000
-      )
+      console.info("Done, took %ds %dms", hrend[0], hrend[1] / 1000000)
     } else {
       //console.log("no files...")
     }
 
     if (finishedFound) {
       // we've got an end point here
-      console.log("Run Finished....Stop Looking for Files, waiting for Badge scan")
+      console.log(
+        "Run Finished....Stop Looking for Files, waiting for Badge scan"
+      )
       loadingFound = false
       onStartFound = false
       finishedFound = false
