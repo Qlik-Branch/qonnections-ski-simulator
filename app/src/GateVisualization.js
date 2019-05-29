@@ -5,7 +5,7 @@ import objectDefinitions from "./assets/objectDefinitions.json"
 import enigmaService from "./services/EnigmaService"
 
 function GateVisualization() {
-    let [sessionObject, setSessionObject] = useState(null)
+  let [sessionObject, setSessionObject] = useState(null)
 
   const convertHypercubeToData = layout => {
     const matrix = layout.qHyperCube.qDataPages[0].qMatrix
@@ -20,12 +20,12 @@ function GateVisualization() {
     try {
       const layout = await model.getLayout()
       drawChart(convertHypercubeToData(layout))
-    } catch(e) {
+    } catch (e) {
       console.log("Error updating values")
     }
   }
 
-  const drawChart = async (data) => {
+  const drawChart = async data => {
     picasso.chart({
       element: document.querySelector("#gateVisualization"),
       data,
@@ -33,7 +33,7 @@ function GateVisualization() {
         scales: {
           y: {
             data: { field: "Speed" },
-            invert: true,
+            invert: true
           },
           g: { data: { extract: { field: "Gate" } } }
         },
@@ -41,12 +41,12 @@ function GateVisualization() {
           {
             type: "axis",
             dock: "left",
-            scale: "y",
+            scale: "y"
           },
           {
             type: "axis",
             dock: "bottom",
-            scale: "g",
+            scale: "g"
           },
           {
             key: "lines",
@@ -76,20 +76,19 @@ function GateVisualization() {
 
   useEffect(() => {
     if (!sessionObject) {
-        const getSessionObject = async () => {
-          setSessionObject(
-            await enigmaService.getData(
-                objectDefinitions.gateSpeedDefinition,
-                updateValues
-              )
+      const getSessionObject = async () => {
+        setSessionObject(
+          await enigmaService.getData(
+            objectDefinitions.gateSpeedDefinition,
+            updateValues
           )
-        }
-        getSessionObject()
+        )
       }
+      getSessionObject()
+    }
   })
 
-
-  return <div id="gateVisualization" className="GateVisualization"></div>
+  return <div id="gateVisualization" className="GateVisualization" />
 }
 
 export default GateVisualization

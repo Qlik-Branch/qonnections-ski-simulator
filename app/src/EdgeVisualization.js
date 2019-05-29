@@ -16,7 +16,8 @@ function EdgeVisualization(props) {
     <div className="EdgeVisualization">
       <div id="edgeVisualization" className="edgeArc" />
       <div className="edgeValue">
-      {props.edge > 0 ? '+' : ''}{props.edge}
+        {props.edge > 0 ? "+" : ""}
+        {props.edge}
       </div>
     </div>
   )

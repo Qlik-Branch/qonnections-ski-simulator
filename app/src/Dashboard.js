@@ -57,12 +57,8 @@ function Dashboard(props) {
       const newValues = {
         speed: checkNan(matrix[0].qNum),
         gates: checkNan(matrix[1].qNum),
-        totalGates: `/${checkNan(
-          matrix[2].qNum
-        )}`,
-        time: moment(
-          checkNan(matrix[3].qNum)
-        ).format("mm:ss.SSS"),
+        totalGates: `/${checkNan(matrix[2].qNum)}`,
+        time: moment(checkNan(matrix[3].qNum)).format("mm:ss.SSS"),
         status: matrix[4].qText,
         errors: checkNan(matrix[5].qNum),
         edging: edgingValue,
@@ -115,7 +111,12 @@ function Dashboard(props) {
           <IconSection icon={imgError} iconText="Errors" text={values.errors} />
           <VisualizationSection
             title="Edge"
-            visualization={<EdgeVisualization edge={values.edging} lastEdge={values.lastEdging} />}
+            visualization={
+              <EdgeVisualization
+                edge={values.edging}
+                lastEdge={values.lastEdging}
+              />
+            }
           />
         </div>
         <div className="column">
@@ -142,7 +143,7 @@ function Dashboard(props) {
             title={values.course}
             visualization={
               <CourseMap
-                running = {isRunning()}
+                running={isRunning()}
                 latitude={values.latitude}
                 longitude={values.longitude}
                 name={skierName()}

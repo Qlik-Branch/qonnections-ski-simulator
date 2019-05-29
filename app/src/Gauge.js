@@ -98,10 +98,12 @@ function renderChart(wrapper, curData) {
     .ease(d3EaseElastic)
     .attr("transform", "rotate(" + newAngle + ")")
 
-    // second pointer
-    const secondPointerWidth = 10
+  // second pointer
+  const secondPointerWidth = 10
   const secondPointerHeadLengthPercent = 0.6
-  const secondPointerHeadLength = Math.round(radius * secondPointerHeadLengthPercent)
+  const secondPointerHeadLength = Math.round(
+    radius * secondPointerHeadLengthPercent
+  )
   const secondPointerTailLength = 5
   const secondLineData = [
     [secondPointerWidth / 2, 0],
@@ -111,7 +113,9 @@ function renderChart(wrapper, curData) {
     [secondPointerWidth / 2, 0]
   ]
   const secondPointerLine = d3Line().curve(d3CurveLinear)
-  const secondPointerData = svgMerge.selectAll("g.pointer2").data([secondLineData])
+  const secondPointerData = svgMerge
+    .selectAll("g.pointer2")
+    .data([secondLineData])
   const secondPointerEnter = secondPointerData
     .enter()
     .append("g")
