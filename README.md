@@ -16,9 +16,10 @@ To run this project you need to install the following:
 ### Running Qlik Core and creating the Qlik App
 
 1. Clone the repo
-2. From the root directory run `npm install`
-3. Run `docker-compose up -d`
-4. Run `corectl build`
+2. Move to the repo directory: `cd qonnections-ski-simulator`
+3. From the root directory run `npm install`
+4. Run `docker-compose up -d`
+5. Run `corectl build`
 
 ### Running the renamer
 
