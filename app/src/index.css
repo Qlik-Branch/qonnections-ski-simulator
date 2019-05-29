@@ -1,0 +1,57 @@
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: normal;
+  src: url('./assets/OpenSans-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: bold;
+  src: url('./assets/OpenSans-Bold.ttf');
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+
+.actionButton {
+  color: white;
+  background-color: #852065;
+  width: 332px;
+  height: 115px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  font-family: 'Open Sans';
+  font-size: 74px;
+  margin-bottom: 20px;
+  box-shadow: 0px 6px 6px #5B1746;
+  transition-duration: 0.2s;
+  text-align: center;
+}
+
+.actionButton:hover {
+box-shadow: 0px 12px 12px #5B1746;
+transform: translateY(-6px);
+}
+
+.actionButton:active {
+transform: translateY(-3px);
+background-color: #c32f94;
+transition-duration: .1s;
+}

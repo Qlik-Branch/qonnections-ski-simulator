@@ -1,0 +1,17 @@
+.VisualizationSection {
+    margin: 5px 0;
+    background-color: white;
+    box-shadow: 0px 3px 3px black;
+    padding: 7px 17px;
+    font-family: 'Open Sans';
+    font-weight: bold;
+    font-size: 20px;
+    text-transform: uppercase;
+    color: #005CB9;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}

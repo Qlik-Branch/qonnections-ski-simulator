@@ -1,0 +1,126 @@
+{
+  "dashboardDefinition": {
+    "qInfo": {
+      "qType": "table",
+      "qId": "dashboard"
+    },
+    "qHyperCubeDef": {
+      "qDimensions": [
+        {
+          "qDef": {
+            "qFieldDefs": ["Speed"]
+          }
+        },
+        {
+          "qDef": {
+            "qFieldDefs": ["Gates Passed"]
+          }
+        },
+        {
+          "qDef": {
+            "qFieldDefs": ["Gates Total"]
+          }
+        },
+        {
+          "qDef": {
+            "qFieldDefs": ["Time"]
+          }
+        },
+        {
+          "qDef": {
+            "qFieldDefs": ["Race Status"]
+          }
+        },
+        {
+          "qDef": {
+            "qFieldDefs": ["Errors"]
+          }
+        },
+        {
+          "qDef": {
+            "qFieldDefs": ["Edging Left"]
+          }
+        },
+        {
+          "qDef": {
+            "qFieldDefs": ["Edging Right"]
+          }
+        },
+        {
+          "qDef": {
+            "qFieldDefs": ["Course"]
+          }
+        },
+        {
+          "qDef": {
+            "qFieldDefs": ["GeoPos N"]
+          }
+        },
+        {
+          "qDef": {
+            "qFieldDefs": ["GeoPos E"]
+          }
+        },
+        {
+          "qDef": {
+            "qFieldDefs": ["Gate Edging Left"]
+          }
+        },
+        {
+          "qDef": {
+            "qFieldDefs": ["Gate Edging Right"]
+          }
+        }
+      ],
+      "qMeasures": [
+        {
+          "qDef": {
+            "qDef": "=Sum({<[Time Recorded]={'$(=Max([Time Recorded]))'}>}1)"
+          }
+        }
+      ],
+      "qInitialDataFetch": [
+        {
+          "qTop": 0,
+          "qHeight": 1,
+          "qLeft": 0,
+          "qWidth": 14
+        }
+      ],
+      "qSuppressZero": false,
+      "qSuppressMissing": true
+    }
+  },
+  "gateSpeedDefinition": {
+    "qInfo": {
+      "qType": "table",
+      "qId": "gate_speed"
+    },
+    "qHyperCubeDef": {
+      "qDimensions": [
+        {
+          "qDef": {
+            "qFieldDefs": ["Gates Passed"]
+          }
+        }
+      ],
+      "qMeasures": [
+        {
+          "qDef": {
+            "qDef": "=Avg(Speed)"
+          }
+        }
+      ],
+      "qInitialDataFetch": [
+        {
+          "qTop": 0,
+          "qHeight": 5000,
+          "qLeft": 0,
+          "qWidth": 2
+        }
+      ],
+      "qSuppressZero": false,
+      "qSuppressMissing": true
+    }
+  }
+}

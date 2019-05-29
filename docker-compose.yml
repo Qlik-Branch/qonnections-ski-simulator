@@ -1,0 +1,11 @@
+version: "2"
+
+services:
+  engine: 
+    image: qlikcore/engine:12.368.0
+    command: -S AcceptEULA=yes -S DocumentDirectory=/docs -S EnableFilePolling=1
+    ports:
+      - "19076:9076"
+    volumes: 
+      - ./data/docs:/docs
+      - ./data:/data

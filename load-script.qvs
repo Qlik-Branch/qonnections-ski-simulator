@@ -1,0 +1,50 @@
+Simulator:
+  LOAD
+    [Race ID],
+    Badge,
+    Course,
+    [Gates Total],
+    [Race Status],
+    Time,
+    Speed,
+    [Gates Passed],
+    Errors,
+    [Edging Left],
+    [Edging Right],
+    [Gate Edging Left],
+    [Gate Edging Right],
+    [GeoPos N],
+    [GeoPos E],
+    [GeoPos H],
+    [Time Recorded]
+  FROM [lib://data/unprocessed/ski-data.csv]
+  (txt, utf8, embedded labels, delimiter is ',');
+
+Simulator:
+  ADD LOAD
+    [Race ID],
+    Badge,
+    Course,
+    [Gates Total],
+    [Race Status],
+    Time,
+    Speed,
+    [Gates Passed],
+    Errors,
+    [Edging Left],
+    [Edging Right],
+    [Gate Edging Left],
+    [Gate Edging Right],
+    [GeoPos N],
+    [GeoPos E],
+    [GeoPos H],
+    [Time Recorded]
+  FROM [lib://data/unprocessed/ski-data.csv]
+  (txt, utf8, embedded labels, delimiter is ',')
+  WHERE NOT EXISTS ([Time Recorded]);
+
+Badges:
+LOAD
+  *
+FROM [lib://data/processed/badges.csv]
+(txt, utf8, embedded labels, delimiter is ',');

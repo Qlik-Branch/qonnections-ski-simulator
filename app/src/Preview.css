@@ -1,0 +1,35 @@
+.Preview {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+.greetings {
+  font-family: 'Open Sans';
+  font-weight: bold;
+  font-size: 83px;
+  color: #005CB9;
+  margin-top: 94px;
+  text-align: center;
+}
+
+.instruction {
+  font-family: 'Open Sans';
+  font-size: 54px;
+  color: #244C5A;
+  margin: 5px 0 33px;
+  text-align: center;
+}
+
+.goContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bestTime {
+    color: #005CB9;
+    font-family: 'Open Sans';
+    font-size: 37px;
+    text-align: center;
+}

@@ -1,0 +1,7 @@
+engine: localhost:19076 # URL and port to running Qlik Associative Engine instance
+app: Qonnections2019.qvf # App name that the tool should open a session against. Default a session app will be used.
+script: ./load-script.qvs # Path to a script that should be set in the app
+connections: # Connections that should be created in the app
+  data: # Name of the connection
+    connectionstring: /data # Connectionstring (qConnectionString) of the connection. For a folder connector this is an absolute or relative path inside of the engine docker container.
+    type: folder # Type of connection

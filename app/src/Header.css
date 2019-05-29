@@ -1,0 +1,25 @@
+.Header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 12px 49px auto 59px;
+  }
+
+.qlik, .ski {
+    flex: 0 0 auto;
+}
+
+.qlik {
+  width: 228px;
+}
+
+img {
+    max-width: 100%;
+}
+
+.nextSkier {
+  font-weight: bold;
+  font-size: 33px;
+  height: 67px;
+}

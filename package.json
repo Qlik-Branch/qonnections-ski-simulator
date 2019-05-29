@@ -1,0 +1,18 @@
+{
+  "name": "ski-simulator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "dependencies": {
+    "dotenv": "^8.0.0",
+    "enigma.js": "^2.4.0",
+    "uuid": "^3.3.2",
+    "ws": "^7.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "reset": "rm data/docs/Qonnections2019.qvf; cp empty-files/ski-data.csv data/unprocessed/ski-data.csv; corectl build"
+  },
+  "keywords": [],
+  "author": "Rey Riel"
+}

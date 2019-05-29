@@ -1,0 +1,9 @@
+node_modules
+/sample-data/**
+!/sample-data/*.zip
+
+.DS_Store
+.env
+*.qvf
+
+test/data
