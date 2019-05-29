@@ -10,6 +10,7 @@ To run this project you need to install the following:
 - NodeJS
 - corectl - https://github.com/qlik-oss/corectl
 - For the maps to work you'll need a Qlik GeoAnalytics implementation
+- A webcam. The React app needs to use a webcam to scan QR codes (which are included in this source)
 
 ## Getting Started
 
